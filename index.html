@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stake for Me!</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+    <script src="js/enu/enu.js"></script>
+</head>
+
+<body>
+    <div class="container header">
+        <h1>
+            <span id="title">Stake For Me</h1>
+        <p>
+            <span id="subtitle">The ultimate solution to account deadlock issues</span>
+        </p>
+    </div>
+    <div class="container content">
+        <div class="row">
+            <div class="col-sm-12 recents">
+                <h3>What is This?</h3>
+                <p><span style="font-style: italic">Stake for Me</span> consists of two smart contracts <a href="https://eosflare.io/account/autostakecpu" target="_blank"><strong>autostakecpu</strong></a> and <a href="https://eosflare.io/account/autostakenet" target="_blank"><strong>autostakenet</strong></a>.</p>
+                <p>It's designed to help people with deadlocked account issues. And it's completely <strong>free</strong> to use.</p>
+                <p>Just grab some EOS from your favourite exchange, and withdraw to the corresponding contract with the memo set to your account name.</p>
+                <p>Boom! Your account is usable again!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 recents">
+                <h3>How to Use?</h3>
+            </div>
+            <div class="col-sm-6 recents">
+                <h5>Need CPU Stake?</h5>
+                <div style="text-align: left">
+                    <p>1. Buy EOS from an exchange</p>
+                    <p>2. Click withdrawal</p>
+                    <p>3. Set the recipient to <strong>autostakecpu</strong></p>
+                    <p>4. Set the memo to <strong>YOUR OWN ACCOUNT NAME</strong></p>
+                    <p>5. Confirm your withdrawal</p>
+                </div>
+            </div>
+            <div class="col-sm-6 recents">
+                <h5>Need NET Stake?</h5>
+                <div style="text-align: left">
+                    <p>1. Buy EOS from an exchange</p>
+                    <p>2. Click withdrawal</p>
+                    <p>3. Set the recipient to <strong>autostakenet</strong></p>
+                    <p>4. Set the memo to <strong>YOUR OWN ACCOUNT NAME</strong></p>
+                    <p>5. Confirm your withdrawal</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 footer">
+                <h3>It's All Open</h3>
+                <p>The contract is open-sourced at <a href="https://github.com/xJonathanLEI/stakeforme" target="_blank">GitHub</a>.</p>
+            </div>
+        </div>
+    </div>
+    <script>init();</script>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="pcGuideModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Ironman Not Installed</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Ironman is not installed on this PC.</p>
+                    <p>To buy lottery tickets, follow one of the ways:</p>
+                    <ul>
+                        <li>
+                            <span>Follow
+                                <a href="https://enumivo.com/topic/641-ironman-a-light-and-secure-browser-based-onchain-wallet-for-enu/" target="_blank">this
+                                    guide
+                                </a> to install and set-up Ironman. Then refresh the lottery page.</span>
+                        </li>
+                        <li>
+                            <span>Install
+                                <a href="https://www.mytokenpocket.vip" target="_blank">Token Pocket</a> on your phone if
+                                you haven't done so. Then, send
+                                <strong id="pcAmount"></strong> to the contract
+                                <strong>enulotteries</strong> with memo set to
+                                <strong id="pcMemo"></strong>.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mobileGuideModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Purchase on Phone</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="mobileTPInfo">[Token Pocket native support coming soon]</p>
+                    <p>To buy lottery tickets, use a mobile wallet to make a token transfer.</p>
+                    <p>
+                        <span>Install the recommended wallet
+                            <a href="https://www.mytokenpocket.vip" target="_blank">Token Pocket</a> on your phone if you
+                            haven't done so. Then, send
+                            <strong id="mobileAmount"></strong> to the contract
+                            <strong>enulotteries</strong> with memo set to
+                            <strong id="mobileMemo"></strong>.
+                        </span>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="tipModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tipTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="tipContent"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
